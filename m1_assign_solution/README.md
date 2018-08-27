@@ -45,7 +45,7 @@ Here is what you will need to do to complete the assignment:
 7. Create `app.js` in your project and declare an Angular module to match your `ng-app` declaration.
 8. Go back to `index.html` and declare a controller for some portion of your page that contains the textbox, the button, and the message placeholder.
 9. Annotate the textbox, the button, and the placeholder such that you can hook in behavior to those elements from your controller.
-10. Go back to `app.js`. Declare and define a `LunchCheckController`. Properly inject `$scope` into the controller using the `$inject` property (shown how in video lecture) to make sure to protect your code from minification.
+10. Go back to `app.js`. Declare and define a `LunchCheckController`. Properly inject `vm` into the controller using the `$inject` property (shown how in video lecture) to make sure to protect your code from minification.
 11. Create and implement properties and method(s) in order to implement the functionality outlined in General Idea section above.
   * Make sure that none of your variables/objects/functions "leak to the global scope". (Hint: IIFE)
 12. After you are done and satisfied with your solution, don't forget to add/commit/push your code to your repository.

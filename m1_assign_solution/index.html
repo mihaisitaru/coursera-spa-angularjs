@@ -10,32 +10,32 @@
   </head>
 <body>
    <div class="container">
-     <div ng-controller="LunchCheckController">
-       <h1>{{title}}</h1>
+     <div ng-controller="LunchCheckController as vm">
+       <h1>{{vm.title}}</h1>
        <div class="form-group">
            <input id="lunch-menu" type="text"
-           placeholder="{{placeholder}}"
-           ng-model="lunchMenu"
-           ng-change="checkLunch(listLength)"
-           ng-style="{'border-color':warningColor}"
+           placeholder="{{vm.placeholder}}"
+           ng-model="vm.lunchMenu"
+           ng-change="vm.checkLunch(listLength)"
+           ng-style="{'border-color' : vm.warningColor}"
            class="form-control">
        </div>
        <div class="form-group">
            <button class="btn btn-success"
-                   ng-click="checkLunch(errorColor)">Check If Too Much</button>
+                   ng-click="vm.checkLunch(errorColor)">Check If Too Much</button>
            <button class="btn btn-danger"
-                   ng-click="reset()">Reset list</button>
+                   ng-click="vm.reset()">Reset list</button>
        </div>
        <div class="form-group message">
          <!-- Your message can go here. -->
-         <h4 ng-hide="emptyDish"
-             ng-class="{'text-danger': !lunchMenu,
-                        'text-success': listLength <=3,
-                        'text-warning': listLength >3}">{{errorMsg}}</h4>
-         <h4 ng-model="emptyDish"
-             ng-change="checkEmptyDish(emptyDish)"
-             ng-show="emptyDish"
-             class="text-info">{{emptyDishMsg}}</h4>
+         <h4 ng-hide="vm.emptyDish"
+             ng-class="{'text-danger': !vm.lunchMenu,
+                        'text-success': vm.listLength <=3,
+                        'text-warning': vm.listLength >3}">{{vm.errorMsg}}</h4>
+         <h4 ng-model="vm.emptyDish"
+             ng-change="vm.checkEmptyDish(vm.emptyDish)"
+             ng-show="vm.emptyDish"
+             class="text-info">{{vm.emptyDishMsg}}</h4>
        </div>
      </div>
    </div>
