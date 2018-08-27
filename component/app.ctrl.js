@@ -1,9 +1,12 @@
 (function () {
   'use strict';
 
-  function AppController ($scope) {
-    $scope.name = 'Mihai';
-    $scope.sayHello = function () {
+  function AppController () {
+
+    var vm = this;
+    
+    vm.name = 'Mihai';
+    vm.sayHello = function () {
       return 'Hello man!';
     }
 

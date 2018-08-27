@@ -2,18 +2,12 @@
 <html lang="en" dir="ltr" ng-app="CourseraSPA">
   <head>
     <meta charset="utf-8">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js"></script>
-    <script src="app.js"></script>
-    <script src="component/app.ctrl.js"></script>
-    <script src="component/name-calculator.ctrl.js"></script>
-    <script src="component/di.ctrl.js"></script>
-    <script src="component/expressions.ctrl.js"></script>
     <title>Coursera SPA AngularJS</title>
   </head>
   <body>
-    <div ng-controller="AppController">
-      <input ng-model="name"/>
-      {{name}}
+    <div ng-controller="AppController as vm">
+      <input ng-model="vm.name"/>
+      {{vm.name}}
       <div ng-controller="NameCalculatorController as vm">
         <h1>Name Calculator</h1>
         <label for="fullName">Your name:</label>
@@ -31,10 +25,16 @@
          ng-focus="vm.lower()">
          <p>{{ aha }}</p>
       </div>
-      <div ng-controller="ExpressionsController">
+      <div ng-controller="ExpressionsController as vm">
         <h1>Expressions and Interpolation</h1>
-        {{ names }} {{ displayMessage() }}
+        {{ vm.names }} {{ vm.displayMessage() }}
       </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="component/app.ctrl.js"></script>
+    <script src="component/name-calculator.ctrl.js"></script>
+    <script src="component/di.ctrl.js"></script>
+    <script src="component/expressions.ctrl.js"></script>
   </body>
 </html>

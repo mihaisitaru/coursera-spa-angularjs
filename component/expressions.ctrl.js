@@ -1,11 +1,12 @@
 (function () {
 'use strict';
 
-ExpressionsController.$inject = ['$scope'];
+function ExpressionsController() {
 
-function ExpressionsController($scope) {
-  $scope.names = 'Mihai Sitaru';
-  $scope.displayMessage = function () {
+  var vm = this;
+
+  vm.names = 'Mihai Sitaru';
+  vm.displayMessage = function () {
     return " is sleepy";
   };
 }
