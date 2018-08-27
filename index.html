@@ -29,6 +29,20 @@
         <h1>Expressions and Interpolation</h1>
         {{ vm.names }} {{ vm.displayMessage() }}
       </div>
+      <div ng-controller="FilterController as vm">
+        <h1>Filters</h1>
+        <span>{{ vm.nameFiltered }}</span>
+        <span>has a message for you:</span>
+        <strong>{{ vm.sayMessage() }}</strong>
+        <br/>
+        <button ng-click="vm.feedMihai()">Feed Mihai</button>
+        <div ng-show="vm.stateOfBeing">
+          <span>Cost:</span>
+          <strong>{{ vm.cookieCost | currency : "RON" : 3}}</strong>
+          <br/>
+          <strong>{{ vm.stateOfBeing | uppercase }}</strong>
+        </div>
+      </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js"></script>
     <script src="app.js"></script>
@@ -36,5 +50,6 @@
     <script src="component/name-calculator.ctrl.js"></script>
     <script src="component/di.ctrl.js"></script>
     <script src="component/expressions.ctrl.js"></script>
+    <script src="component/filter.ctrl.js"></script>
   </body>
 </html>
