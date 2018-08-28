@@ -33,11 +33,18 @@
         <h1>Filters</h1>
         <span>{{ vm.nameFiltered }}</span>
         <span>has a message for you:</span>
-        <strong>{{ vm.sayMessage() }}</strong>
         <br/>
-        <button ng-click="vm.feedMihai()">Feed Mihai</button>
+        <strong>Original message: {{ vm.sayMessage() }}</strong>
+        <br/>
+        <strong>Filtered message: {{ vm.sayLovesMessage() }}</strong>
+        <br/>
+        <strong>Truth message: {{ vm.sayLovesMessage() | truth : 'healthy snacks' : 'cookies'  }}</strong>
+        <br/>
+        <strong>Big truth message: {{ vm.sayLovesMessage() | truth : 'healthy snacks' : 'cookies' | uppercase }}</strong>
+        <br/>
+        <button ng-bind="vm.action" ng-click="vm.feedMihai()"></button>
         <div ng-show="vm.stateOfBeing">
-          <span>Cost:</span>
+          <span>A cookie costs: </span>
           <strong>{{ vm.cookieCost | currency : "RON" : 3}}</strong>
           <br/>
           <strong>{{ vm.stateOfBeing | uppercase }}</strong>
