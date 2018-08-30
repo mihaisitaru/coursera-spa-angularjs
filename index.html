@@ -50,6 +50,42 @@
           <strong>{{ vm.stateOfBeing | uppercase }}</strong>
         </div>
       </div>
+      <div ng-controller="CounterController as vm">
+        <h1>The Digest Cycle</h1>
+        <button ng-click="vm.showNumberOfWatchers()">
+          Log # of Watchers
+        </button>
+        <div>
+          <button ng-click="countOnce()">Up Once Counter (once)</button>
+          <button ng-click="upCounter()">Up Counter</button>
+        </div>
+        <div>
+          <input type="text" name="name" ng-model="name"> <br>
+          Once counter: {{ onceCounter}} <br>
+          Regular counter: {{counter}} <br>
+          <!-- Name: {{ name }} <br> -->
+        </div>
+      </div>
+      <div ng-controller="WaysOfBindingController as vm">
+        <h1>2-way, 1-way and 1-time binding</h1>
+
+        <button ng-click="vm.showNumberOfWatchers()">
+          Log # of Watchers
+        </button>
+        <button ng-click="vm.setFullName()">
+          Set Full Name
+        </button>
+        <strong>Full name is: {{::vm.fullName}}</strong>
+        <button ng-click="vm.logFirstName()">
+          Log First Name
+        </button><br>
+        <button ng-click="vm.logFullName()">
+          Log Full Name
+        </button>
+        <div>
+          <input type="text" ng-model="vm.firstName">
+        </div>
+      </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js"></script>
     <script src="app.js"></script>
@@ -58,5 +94,7 @@
     <script src="component/di.ctrl.js"></script>
     <script src="component/expressions.ctrl.js"></script>
     <script src="component/filter.ctrl.js"></script>
+    <script src="component/digest-cycle.ctrl.js"></script>
+    <script src="component/ways-of-binding.ctrl.js"></script>
   </body>
 </html>
