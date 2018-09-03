@@ -136,7 +136,7 @@
           <button style="padding: 2px 16px;" class="btn btn-info" ng-click="vm.addItem();">Add Item To Shopping List</button>
         </div>
         <div ng-controller='ShoppingListShowController as vm'>
-          <h1>Custom Service ShoppindListShowController</h1>
+          <h1 ng-if="vm.items.length">Custom Service ShoppindListShowController</h1>
           <div class="container">
             <ol class="row">
               <span>
