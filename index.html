@@ -2,121 +2,166 @@
 <html lang="en" dir="ltr" ng-app="CourseraSPA">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
     <title>Coursera SPA AngularJS</title>
   </head>
   <body>
-    <div ng-controller="AppController as vm">
-      <input ng-model="vm.name"/>
-      {{vm.name}}
-      <div ng-controller="NameCalculatorController as vm">
-        <h1>Name Calculator</h1>
-        <label for="fullName">Your name:</label>
-        <input type="text"
-          name="fullName"
-          ng-model="vm.fullName"
-          ng-keyup="vm.displayNumeric()"/>
-        <div>Total Numeric value of person's name is: {{vm.totalValue}}</div>
-      </div>
-      <div ng-controller="DiController as vm">
-	       <h1>Dependency Injection in Javascript (and AngularJS)</h1>
-         <input type="text"
-         ng-model="vm.anotherName"
-         ng-blur="vm.upper()"
-         ng-focus="vm.lower()">
-         <p>{{ aha }}</p>
-      </div>
-      <div ng-controller="ExpressionsController as vm">
-        <h1>Expressions and Interpolation</h1>
-        {{ vm.names }} {{ vm.displayMessage() }}
-      </div>
-      <div ng-controller="FilterController as vm">
-        <h1>Filters</h1>
-        <span>{{ vm.nameFiltered }}</span>
-        <span>has a message for you:</span>
-        <br/>
-        <strong>Original message: {{ vm.sayMessage() }}</strong>
-        <br/>
-        <strong>Filtered message: {{ vm.sayLovesMessage() }}</strong>
-        <br/>
-        <strong>Truth message: {{ vm.sayLovesMessage() | truth : 'healthy snacks' : 'cookies'  }}</strong>
-        <br/>
-        <strong>Big truth message: {{ vm.sayLovesMessage() | truth : 'healthy snacks' : 'cookies' | uppercase }}</strong>
-        <br/>
-        <button ng-bind="vm.action" ng-click="vm.feedMihai()"></button>
-        <div ng-show="vm.stateOfBeing">
-          <span>A cookie costs: </span>
-          <strong>{{ vm.cookieCost | currency : "RON" : 3}}</strong>
+    <div class="container">
+      <div ng-controller="AppController as vm">
+        <input ng-model="vm.name"/>
+        {{vm.name}}
+        <div ng-controller="NameCalculatorController as vm">
+          <h1>Name Calculator</h1>
+          <label for="fullName">Your name:</label>
+          <input type="text"
+            name="fullName"
+            ng-model="vm.fullName"
+            ng-keyup="vm.displayNumeric()"/>
+          <div>Total Numeric value of person's name is: {{vm.totalValue}}</div>
+        </div>
+        <div ng-controller="DiController as vm">
+  	       <h1>Dependency Injection in Javascript (and AngularJS)</h1>
+           <input type="text"
+           ng-model="vm.anotherName"
+           ng-blur="vm.upper()"
+           ng-focus="vm.lower()">
+           <p>{{ aha }}</p>
+        </div>
+        <div ng-controller="ExpressionsController as vm">
+          <h1>Expressions and Interpolation</h1>
+          {{ vm.names }} {{ vm.displayMessage() }}
+        </div>
+        <div ng-controller="FilterController as vm">
+          <h1>Filters</h1>
+          <span>{{ vm.nameFiltered }}</span>
+          <span>has a message for you:</span>
           <br/>
-          <strong>{{ vm.stateOfBeing | uppercase }}</strong>
+          <strong>Original message: {{ vm.sayMessage() }}</strong>
+          <br/>
+          <strong>Filtered message: {{ vm.sayLovesMessage() }}</strong>
+          <br/>
+          <strong>Truth message: {{ vm.sayLovesMessage() | truth : 'healthy snacks' : 'cookies'  }}</strong>
+          <br/>
+          <strong>Big truth message: {{ vm.sayLovesMessage() | truth : 'healthy snacks' : 'cookies' | uppercase }}</strong>
+          <br/>
+          <button ng-bind="vm.action" ng-click="vm.feedMihai()"></button>
+          <div ng-show="vm.stateOfBeing">
+            <span>A cookie costs: </span>
+            <strong>{{ vm.cookieCost | currency : "RON" : 3}}</strong>
+            <br/>
+            <strong>{{ vm.stateOfBeing | uppercase }}</strong>
+          </div>
         </div>
-      </div>
-      <div ng-controller="CounterController as vm">
-        <h1>The Digest Cycle</h1>
-        <button ng-click="vm.showNumberOfWatchers()">
-          Log # of Watchers
-        </button>
-        <div>
-          <button ng-click="countOnce()">Up Once Counter (once)</button>
-          <button ng-click="upCounter()">Up Counter</button>
+        <div ng-controller="CounterController as vm">
+          <h1>The Digest Cycle</h1>
+          <button ng-click="vm.showNumberOfWatchers()">
+            Log # of Watchers
+          </button>
+          <div>
+            <button ng-click="countOnce()">Up Once Counter (once)</button>
+            <button ng-click="upCounter()">Up Counter</button>
+          </div>
+          <div>
+            <input type="text" name="name" ng-model="name"> <br>
+            Once counter: {{ onceCounter}} <br>
+            Regular counter: {{counter}} <br>
+            <!-- Name: {{ name }} <br> -->
+          </div>
         </div>
-        <div>
-          <input type="text" name="name" ng-model="name"> <br>
-          Once counter: {{ onceCounter}} <br>
-          Regular counter: {{counter}} <br>
-          <!-- Name: {{ name }} <br> -->
-        </div>
-      </div>
-      <div ng-controller="WaysOfBindingController as vm">
-        <h1>2-way, 1-way and 1-time binding</h1>
+        <div ng-controller="WaysOfBindingController as vm">
+          <h1>2-way, 1-way and 1-time binding</h1>
 
-        <button ng-click="vm.showNumberOfWatchers()">
-          Log # of Watchers
-        </button>
-        <button ng-click="vm.setFullName()">
-          Set Full Name
-        </button>
-        <strong>Full name is: {{::vm.fullName}}</strong>
-        <button ng-click="vm.logFirstName()">
-          Log First Name
-        </button><br>
-        <button ng-click="vm.logFullName()">
-          Log Full Name
-        </button>
-        <div>
-          <input type="text" ng-model="vm.firstName">
+          <button ng-click="vm.showNumberOfWatchers()">
+            Log # of Watchers
+          </button>
+          <button ng-click="vm.setFullName()">
+            Set Full Name
+          </button>
+          <strong>Full name is: {{::vm.fullName}}</strong>
+          <button ng-click="vm.logFirstName()">
+            Log First Name
+          </button><br>
+          <button ng-click="vm.logFullName()">
+            Log Full Name
+          </button>
+          <div>
+            <input type="text" ng-model="vm.firstName">
+          </div>
         </div>
-      </div>
-      <div ng-controller="ShoppingListController as vm">
-        <h1>ng-repeat</h1>
-        <h3>Shopping List #1:</h3>
-        <ul>
-          <li ng-repeat="item in vm.shoppingList1"> {{ item }}</li>
-        </ul>
-        <h3>Shopping List #2:</h3>
-        <ol>
-          <!-- <li ng-repeat="item in vm.shoppingList2">{{ item.name + ' - ' + item.quantity + ';' }}</li> -->
-          <li ng-repeat="item in vm.shoppingList2">{{ item.name }} - {{ item.quantity }};</li>
-        </ol>
-        <h3>Shopping List #3:</h3>
-        <input type="text" ng-model="vm.shoppingList2[0].quantity">
-        <ul>
-          <li ng-repeat="item in vm.shoppingList2">{{ $index + 1 }}. {{ item.name }} - {{ item.quantity }};</li>
-        </ul>
-        <input type="text" ng-model="vm.newItemName" placeholder="item name">
-        <input type="text" ng-model="vm.newItemQuantity" placeholder="item quantity">
-        <button ng-click="vm.addToList()">Add to list</button>
-      </div>
-      <div ng-controller="FilteredArrayController as vm">
-        <h1>Filtered Array Example</h1>
-        <h3>{{ vm.shoppingList | filter: vm.searchValue }}</h3>
-        <input type="text" ng-model="inputValue" placeholder="filter item">
-        <ul>
-          <li ng-repeat="item in vm.shoppingList | filter : inputValue">{{ item }}</li>
-        </ul>
+        <div ng-controller="ShoppingListController as vm">
+          <h1>ng-repeat</h1>
+          <h3>Shopping List #1:</h3>
+          <ul>
+            <li ng-repeat="item in vm.shoppingList1"> {{ item }}</li>
+          </ul>
+          <h3>Shopping List #2:</h3>
+          <ol>
+            <!-- <li ng-repeat="item in vm.shoppingList2">{{ item.name + ' - ' + item.quantity + ';' }}</li> -->
+            <li ng-repeat="item in vm.shoppingList2">{{ item.name }} - {{ item.quantity }};</li>
+          </ol>
+          <h3>Shopping List #3:</h3>
+          <input type="text" ng-model="vm.shoppingList2[0].quantity">
+          <ul>
+            <li ng-repeat="item in vm.shoppingList2">{{ $index + 1 }}. {{ item.name }} - {{ item.quantity }};</li>
+          </ul>
+          <input type="text" ng-model="vm.newItemName" placeholder="item name">
+          <input type="text" ng-model="vm.newItemQuantity" placeholder="item quantity">
+          <button ng-click="vm.addToList()">Add to list</button>
+        </div>
+        <div ng-controller="FilteredArrayController as vm">
+          <h1>Filtered Array Example</h1>
+          <h3>{{ vm.shoppingList | filter: vm.searchValue }}</h3>
+          <input type="text" ng-model="inputValue" placeholder="filter item">
+          <ul>
+            <li ng-repeat="item in vm.shoppingList | filter : inputValue">{{ item }}</li>
+          </ul>
+        </div>
+        <div ng-if="vm.showLog" ng-controller="PrototypeExampleController as vm">
+          <h1>Prototypal Inheritence</h1>
+        </div>
+        <div ng-controller="ParentExampleController as parent">
+          <span>Parent value:</span>
+          <span>{{ parent.value }}</span>
+          <div ng-controller="ChildExampleController as child">
+            <span>Child value:</span>
+            <span>{{ child.value }}</span><br>
+            <span>Parent value from Child scope:</span>
+            <span>{{ parent.value }}</span>
+          </div>
+        </div>
+        <div ng-controller='ShoppingListAddController as vm'>
+          <h1>Custom Service ShoppindListAddController</h1>
+          <input type="text" ng-model="vm.itemName" placeholder="item name">
+          <input type="text" ng-model="vm.itemQuantity" placeholder="quantity">
+          <button style="padding: 2px 16px;" class="btn btn-info" ng-click="vm.addItem();">Add Item To Shopping List</button>
+        </div>
+        <div ng-controller='ShoppingListShowController as vm'>
+          <h1>Custom Service ShoppindListShowController</h1>
+          <div class="container">
+            <ol class="row">
+              <span>
+                <li class="col-xs-12" ng-repeat="item in vm.items">
+                  <span>
+                    <div class="container">
+                      <div class="row">
+                        <span class="col-xs-5">{{ item.quantity }} of {{ item.name }}</span>
+                        <span>
+                          <button style="padding: 0;" class="col-xs-2 btn btn-warning" ng-click="vm.deleteItem($index);">Delete Item</button>
+                        </span>
+                      </div>
+                    </div>
+                  </span>
+                </li>
+              </span>
+            </ol>
+          </div>
+          <button ng-if="vm.items.length" class="btn btn-danger" ng-click="vm.emptyShoppingList();">Empty Shopping List</button>
+        </div>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js"></script>
     <script src="app.js"></script>
+    <script src="service/shopping-list.service.js"></script>
     <script src="component/app.ctrl.js"></script>
     <script src="component/name-calculator.ctrl.js"></script>
     <script src="component/di.ctrl.js"></script>
@@ -126,5 +171,10 @@
     <script src="component/ways-of-binding.ctrl.js"></script>
     <script src="component/shopping-list.ctrl.js"></script>
     <script src="component/filtered-array.ctrl.js"></script>
+    <script src="component/prototype-example.ctrl.js"></script>
+    <script src="component/parent-example.ctrl.js"></script>
+    <script src="component/child-example.ctrl.js"></script>
+    <script src="component/shopping-list-add.ctrl.js"></script>
+    <script src="component/shopping-list-show.ctrl.js"></script>
   </body>
 </html>
