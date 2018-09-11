@@ -1,6 +1,6 @@
 (function () {
   'use strict';
 
-  angular.module('CourseraSPA', []);
+  angular.module('CourseraSPA', ['ngAnimate', 'toastr'])
 
 })();

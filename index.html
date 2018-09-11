@@ -146,7 +146,7 @@
                       <div class="row">
                         <span class="col-xs-5">{{ item.quantity }} of {{ item.name }}</span>
                         <span>
-                          <button style="padding: 0;" class="col-xs-2 btn btn-warning" ng-click="vm.deleteItem($index);">Delete Item</button>
+                          <button style="padding: 0;" class="col-xs-2 btn btn-warning" ng-click="vm.deleteItem($index, item.name);">Delete Item</button>
                         </span>
                       </div>
                     </div>
@@ -157,11 +157,42 @@
           </div>
           <button ng-if="vm.items.length" class="btn btn-danger" ng-click="vm.emptyShoppingList();">Empty Shopping List</button>
         </div>
-      </div>
+        <div ng-controller="ShoppingListController1 as vm">
+          <h1>Custom Service Through a Factory</h1>
+          <!-- LIST #1 - unlimited items -->
+          <h3>Shopping List #1</h3>
+          <input type="text" ng-model="vm.itemName" placeholder="item name">
+          <input type="text" ng-model="vm.itemQuantity" placeholder="quantity">
+          <button ng-click="vm.addItem();">Add Item</button>
+          <ol>
+            <li ng-repeat="item in vm.items">
+              {{ item.quantity }} of {{ item.name }}
+              <button class="btn btn-danger" ng-click="vm.removeItem($index, item.name);">Remove Item</button>
+            </li>
+          </ol>
+        </div>
+        <!-- LIST #2 (limited to 3 items) -->
+        <div ng-controller="ShoppingListController2 as vm">
+          <h3>Shopping List #2 (limited to 3 items)</h3>
+          <input type="text" ng-model="vm.itemName" placeholder="item name">
+          <input type="text" ng-model="vm.itemQuantity" placeholder="quantity">
+          <button ng-click="vm.addItem();">Add Item</button>
+          <ol>
+            <li ng-repeat="item in vm.items">
+              {{ item.quantity }} of {{ item.name }}
+              <button class="btn btn-danger" ng-click="vm.removeItem($index, item.name);">Remove Item</button>
+            </li>
+          </ol>
+        </div>
+    </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-animate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/angular-toastr@2/dist/angular-toastr.tpls.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/angular-toastr@2/dist/angular-toastr.css">
     <script src="app.js"></script>
     <script src="service/shopping-list.service.js"></script>
+    <script src="factory/shopping-list.factory.js"></script>
     <script src="component/app.ctrl.js"></script>
     <script src="component/name-calculator.ctrl.js"></script>
     <script src="component/di.ctrl.js"></script>
@@ -176,5 +207,7 @@
     <script src="component/child-example.ctrl.js"></script>
     <script src="component/shopping-list-add.ctrl.js"></script>
     <script src="component/shopping-list-show.ctrl.js"></script>
+    <script src="component/shop-factory.ctrl.js"></script>
+    <script src="component/shop-factory-2.ctrl.js"></script>
   </body>
 </html>
