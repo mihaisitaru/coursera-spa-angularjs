@@ -1,7 +1,8 @@
 (function () {
   'use strict';
 
-  function ShoppingListController() {
+  ShoppingListController.$inject = ['toastr'];
+  function ShoppingListController(toastr) {
 
     var vm = this;
 
@@ -43,6 +44,8 @@
         vm.shoppingList2.push(newItem);
         vm.newItemName = '';
         vm.newItemQuantity = '';
+      } else {
+        toastr.error('Please provide the name and quantity!', 'No empty items!');
       }
     }
 

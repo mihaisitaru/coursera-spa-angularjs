@@ -17,10 +17,14 @@
     vm.removeItem = _removeItem;
 
     function _addItem() {
-      shoppingList.addItem(vm.itemName, vm.itemQuantity);
-      toastr.success(vm.itemName, 'Item added in Shopping List #1!');
-      vm.itemName = "";
-      vm.itemQuantity = "";
+      if (vm.itemName && vm.itemQuantity) {
+        shoppingList.addItem(vm.itemName, vm.itemQuantity);
+        toastr.success(vm.itemName, 'Item added in Shopping List #1!');
+        vm.itemName = "";
+        vm.itemQuantity = "";
+      } else {
+        toastr.error('Please provide the name and quantity!', 'No empty items!');
+      }
     }
 
     function _removeItem(itemIndex, item) {

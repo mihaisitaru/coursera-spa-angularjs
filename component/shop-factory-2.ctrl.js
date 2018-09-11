@@ -17,10 +17,14 @@
 
     function _addItem() {
       try {
-        shoppingList.addItem(vm.itemName, vm.itemQuantity);
-        toastr.success(vm.itemName, 'Item added in Shopping List #2!');
-        vm.itemName = "";
-        vm.itemQuantity = "";
+        if (vm.itemName && vm.itemQuantity) {
+          shoppingList.addItem(vm.itemName, vm.itemQuantity);
+          toastr.success(vm.itemName, 'Item added in Shopping List #2!');
+          vm.itemName = "";
+          vm.itemQuantity = "";
+        } else {
+          toastr.error('Please provide the name and quantity!', 'No empty items!');
+        }
       } catch (error) {
         toastr.error(error.message, 'Error');
       }
