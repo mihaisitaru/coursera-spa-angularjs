@@ -196,6 +196,30 @@
             </li>
           </ol>
         </div>
+        <div ng-controller="ShopAsyncController as vm">
+          <h3>Shopping List with a Promise</h3>
+          <input type="text" ng-model="vm.itemName" placeholder="item name">
+          <input type="text" ng-model="vm.itemQuantity" placeholder="quantity">
+          <span></span>
+          <span>boxes</span>
+          <button ng-click="vm.addItem();">Add Item</button>
+          <ol>
+            <li ng-repeat="item in vm.items">
+              {{ item.quantity }} boxes of {{ item.name }}
+              <button class="btn btn-danger" ng-click="vm.removeItem($index, item.name, item.quantity);">Remove Item</button>
+            </li>
+          </ol>
+        </div>
+        <div ng-controller='MenuCategoriesController as vm'>
+          <h1>Using $http Service</h1>
+          <h3>List of Menu Categories</h3>
+          <ul>
+            <li ng-repeat="category in vm.categories">
+              (<a href="" ng-click="vm.logMenuItems(category.short_name);">{{ category.short_name }}</a>)
+              {{ category.name }}
+            </li>
+          </ul>
+        </div>
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js"></script>
@@ -204,7 +228,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/angular-toastr@2/dist/angular-toastr.css">
   <script src="app.js"></script>
   <script src="config/app.config.js"></script>
+  <script src="constants/api-base-path.constant.js"></script>
   <script src="service/shopping-list.service.js"></script>
+  <script src="service/shopping-list-async.service.js"></script>
+  <script src="service/weight-loss-filter.service.js"></script>
+  <script src="service/menu-categories.service.js"></script>
   <script src="factory/shopping-list.factory.js"></script>
   <script src="provider/shopping-list.provider.js"></script>
   <script src="component/app.ctrl.js"></script>
@@ -224,5 +252,7 @@
   <script src="component/shop-factory.ctrl.js"></script>
   <script src="component/shop-factory-2.ctrl.js"></script>
   <script src="component/shop-provider.ctrl.js"></script>
+  <script src="component/shop-async.ctrl.js"></script>
+  <script src="component/menu-categories.ctrl.js"></script>
   </body>
 </html>
