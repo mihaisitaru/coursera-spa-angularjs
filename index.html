@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <title>Coursera SPA AngularJS</title>
   </head>
   <body>
@@ -220,6 +221,30 @@
             </li>
           </ul>
         </div>
+        <div>
+          <h1 class="text-center">Template Expanding Directive</h1>
+          <div id="list1" ng-controller='ShoppingListControllerNew1 as vm'>
+            <h3>Shopping List New #1</h3>
+            <input type="text" ng-model="vm.itemName" placeholder="item name">
+            <input type="text" ng-model="vm.itemQuantity" placeholder="quantity">
+            <button ng-click="vm.addItem();">Add Item</button>
+            <ol>
+              <list-item ng-repeat="item in vm.items"></list-item>
+            </ol>
+          </div>
+
+          <!-- LIST #2 (limited to 3 items) -->
+          <div id="list2" ng-controller='ShoppingListControllerNew2 as vm'>
+            <h3>Shopping List New #2 (limited to 3 items)</h3>
+            <input type="text" ng-model="vm.itemName" placeholder="item name">
+            <input type="text" ng-model="vm.itemQuantity" placeholder="quantity">
+            <button ng-click="vm.addItem();">Add Item</button>
+            <ol>
+              <div list-item ng-repeat="item in vm.items"></div>
+            </ol>
+          </div>
+        </div>
+
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js"></script>
@@ -228,13 +253,15 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/angular-toastr@2/dist/angular-toastr.css">
   <script src="app.js"></script>
   <script src="config/app.config.js"></script>
-  <script src="constants/api-base-path.constant.js"></script>
+  <script src="constant/api-base-path.constant.js"></script>
   <script src="service/shopping-list.service.js"></script>
   <script src="service/shopping-list-async.service.js"></script>
   <script src="service/weight-loss-filter.service.js"></script>
   <script src="service/menu-categories.service.js"></script>
   <script src="factory/shopping-list.factory.js"></script>
   <script src="provider/shopping-list.provider.js"></script>
+  <script src="directive/list-item-description.directive.js"></script>
+  <script src="directive/list-item.directive.js"></script>
   <script src="component/app.ctrl.js"></script>
   <script src="component/name-calculator.ctrl.js"></script>
   <script src="component/di.ctrl.js"></script>
@@ -254,5 +281,7 @@
   <script src="component/shop-provider.ctrl.js"></script>
   <script src="component/shop-async.ctrl.js"></script>
   <script src="component/menu-categories.ctrl.js"></script>
+  <script src="component/shopping-list-new-1.ctrl.js"></script>
+  <script src="component/shopping-list-new-2.ctrl.js"></script>
   </body>
 </html>
